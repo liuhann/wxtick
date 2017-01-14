@@ -1,0 +1,47 @@
+<!--index.wxml-->
+<view class="container">
+
+  <scroll-view class="timeline" scroll-x="false" scroll-y="true" style="height: 100%;">
+    <!--时间线-->
+    <view class="timeline">
+      <view class="line">
+          <block wx:for="{{lineData}}">
+            <view class="lineblock" style="top: {{item.top}}rpx; height:{{item.height}}rpx; background: {{item.color}}">
+              
+            </view>
+          </block>
+      </view>
+      <view class="hours">
+        <block wx:for="{{[0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}}">
+          <view class="hour hour{{item}}">
+            <text> {{item}}:00</text>
+            
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{false}}" bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+ 
+  <!--增加计时按钮-->
+  <view class="new-tick icon add" bindtap="btnEventNew">
+    <image src="add.png"></image>
+  </view>
+
+  <!--新增计时层-->
+  <view class="layer-new {{newStates}}" id="newContainer"  bindtap="eventCancelStart">
+    <input placeholder="请输入事项名称" bindinput="bindKeyInput"/>
+    <button type="primary" focus="{{newFocus}}"  bindtap="btnEventStart"> 启动 </button>
+  </view>
+
+  <!--计时中-->
+  <view wx:if="{{formatedTicking}}" class="ticking">
+    <text class="during">{{formatedTicking}}</text>
+    <icon class="clock" size="32" color="white" bindtap="btnEventStop" type="waiting_circle"></icon>
+    <text class="desc">{{currentTask}}</text>
+  </view>
+</view>

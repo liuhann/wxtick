@@ -1,0 +1,110 @@
+/**index.wxss**/
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+view.timeline {
+
+}
+
+view.timeline .line {
+  margin-left:30rpx;
+  width:20rpx;
+  height:2400rpx;
+  background-color:#ccc;
+  float: left;
+  position: relative;
+}
+view.timeline .line .lineblock {
+  width: 20rpx;
+  position: absolute;
+}
+
+view.timeline .hours {
+  display:inline-block;
+  width:700rpx;
+  height:2400rpx;
+}
+
+view.timeline .hours .hour {
+  height:100rpx;
+border-bottom:1px solid #ccc;
+font-size:12pt;
+color:#777;
+padding:10rpx;
+box-sizing:border-box;
+
+}
+
+.new-tick {
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+}
+
+.new-tick image {
+   width: 96rpx;
+  height: 96rpx;
+
+}
+
+.layer-new {
+  position:fixed;
+  height:750rpx;
+  top:0px;
+  background-color:rgba(0,0,0,.2);
+  transition:transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  width:750rpx;
+}
+
+.layer-new input {
+  background: #fff;
+  padding:25rpx;
+  width: 750rpx;
+}
+
+.layer-new.off {
+  transform: translateY(-750rpx);
+}
+
+
+button[type="primary"] {
+  margin: 25rpx;
+}
+
+.ticking {
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:750rpx;
+  background:rgba(0,0,0,.3);
+  padding:400rpx 0;
+  text-align: center;
+}
+
+.ticking text.during {
+  color:#fff;
+  font-size:96rpx;
+}
+.ticking icon.clock {
+  margin-right: 20rpx;
+}
