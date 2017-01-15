@@ -22,7 +22,6 @@ Page({
         })
     },
 
-
     btnEventStart: function () {
         this.ticker.start(this.data.currentTask);
 
@@ -34,8 +33,24 @@ Page({
     },
 
     btnEventStop: function () {
-        this.ticker.stop();
 
+        this.setData({
+            stoppingOut: this.animations.zoomOut.export(),
+            stoppingFade: this.animations.fadeOut.export()
+        });
+        
+        this.ticker.stop(function() {
+            
+        });
+
+        setTimeout(function() {
+            this.setData({
+                currentTask: '',
+                stoppingOut: '',
+                formatedTicking: false,
+                stoppingFade: ''
+            });
+        }, 600);
     },
 
     bindKeyInput: function (e) {
@@ -100,23 +115,35 @@ Page({
             }
         }
 
-
-
-
+        console.log(tickHour);
 
         this.setData({
             lineData: lineData,
-            tickHours: tickHour
+            tickHours: tickByHours
         });
     },
-
 
     onLoad: function () {
         console.log('onLoad');
 
-        var that = this
+        var that = this;
 
         this.ticker = new Ticker(that.tickReady);
+
+        this.animations = {
+            zoomOut: wx.createAnimation({
+                transformOrigin: "50% 50%",
+                duration: 500,
+                timingFunction: "ease",
+                delay: 0
+            }).scale(4).opacity(0).step(),
+            fadeOut: wx.createAnimation({
+              duration: 500,
+              timingFunction: 'ease',
+              delay: 0,
+              transformOrigin: '50% 50% 0'
+            }).opacity(0).step()
+        };
 
         this.ticker.onTick = function (formatedTicking, task) {
             that.setData({

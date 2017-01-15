@@ -7,15 +7,18 @@
       <view class="line">
           <block wx:for="{{lineData}}">
             <view class="lineblock" style="top: {{item.top}}rpx; height:{{item.height}}rpx; background: {{item.color}}">
-              
             </view>
           </block>
       </view>
       <view class="hours">
         <block wx:for="{{[0, 1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}}">
           <view class="hour hour{{item}}">
-            <text> {{item}}:00</text>
-            
+            <text style="width:110rpx;"> {{item}}:00</text>
+            <view wx:if="{{tickHours[item]}}"  class="hour-content" >
+                <block wx:for="{{tickHours[item]}}">
+                    <text>{{item.desc}}</text>
+                </block>
+            </view>
           </view>
         </block>
       </view>
@@ -39,9 +42,10 @@
   </view>
 
   <!--计时中-->
-  <view wx:if="{{formatedTicking}}" class="ticking">
-    <text class="during">{{formatedTicking}}</text>
-    <icon class="clock" size="32" color="white" bindtap="btnEventStop" type="waiting_circle"></icon>
-    <text class="desc">{{currentTask}}</text>
+  <view wx:if="{{formatedTicking}}" animation="{{stoppingFade}}" class="ticking">
+    <view>
+        <text class="during" animation="{{stoppingFade}}">{{formatedTicking}}</text>
+    </view>
+    <icon animation="{{stoppingOut}}" class="clock" size="36" color="white" bindtap="btnEventStop" type="waiting_circle"></icon>
   </view>
 </view>

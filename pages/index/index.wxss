@@ -51,7 +51,18 @@ font-size:12pt;
 color:#777;
 padding:10rpx;
 box-sizing:border-box;
+display: flex;
+flex-direction: row;
+}
 
+.hour-content text {
+  background: #777;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  padding: 5rpx 15rpx;
+  display: inline-block;
+  margin: 0 5rpx;
 }
 
 .new-tick {

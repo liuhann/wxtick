@@ -57,7 +57,7 @@ Ticker.prototype = {
             key: 'ticks-' + timerUtils.formateDate(),
             data: this.ticks,
             success: function(res){
-
+                callback && callback();
             },
             fail: function() {
                 // fail
@@ -68,12 +68,12 @@ Ticker.prototype = {
         });
     },
 
-    stop: function() {
+    stop: function(callback) {
       if (this.ticks.current.start && !this.ticks.current.end){
           this.ticks.current.end = new Date().getTime();
           this.ticks.list.push(this.ticks.current);
           this.ticks.current = {};
-          this.save();
+          this.save(callback);
       }
     },
 
