@@ -29,19 +29,20 @@
  
   <!--增加计时按钮-->
   <view class="new-tick icon add" bindtap="btnEventNew">
-    <image src="add.png"></image>
+    <image src="plus.png"></image>
   </view>
 
   <!--新增计时层-->
   <view class="layer-new {{newStates}}" id="newContainer"  bindtap="eventCancelStart">
     <input placeholder="请输入事项名称" bindinput="bindKeyInput"/>
-    <button type="primary" focus="{{newFocus}}"  bindtap="btnEventStart"> 启动 </button>
+    <button type="primary" focus="{{newFocus}}" color="#7c9192" bindtap="btnEventStart"> 启动 </button>
   </view>
 
   <!--计时中-->
   <view wx:if="{{formatedTicking}}" class="ticking">
     <text class="during">{{formatedTicking}}</text>
-    <icon class="clock" size="32" color="white" bindtap="btnEventStop" type="waiting_circle"></icon>
-    <text class="desc">{{currentTask}}</text>
-  </view>
+    <view>
+      <image src="pause.png" style="width: 96rpx;height:96rpx;" bindtap="btnEventStop" ></image>
+    </view>
+  </view>  
 </view>
