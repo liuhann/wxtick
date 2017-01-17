@@ -22,14 +22,14 @@
 }
 
 view.timeline {
-
+  
 }
 
 view.timeline .line {
   margin-left:30rpx;
   width:20rpx;
   height:2400rpx;
-  background-color:#ccc;
+  background-color:#e9eaec;
   float: left;
   position: relative;
 }
@@ -81,7 +81,7 @@ flex-direction: row;
   position:fixed;
   height:750rpx;
   top:0px;
-  background-color:rgba(0,0,0,.2);
+   background: #e9eaec;
   transition:transform .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   width:750rpx;
 }
@@ -99,6 +99,7 @@ flex-direction: row;
 
 button[type="primary"] {
   margin: 25rpx;
+  background-color: #7c9192;
 }
 
 .ticking {
@@ -107,7 +108,8 @@ button[type="primary"] {
   top:0;
   bottom:0;
   width:750rpx;
-  background:rgba(0,0,0,.3);
+  background: rgba(76,91,92,0.9);
+  /* background-image: url('pattern-search.png');*/ 
   padding:400rpx 0;
   text-align: center;
 }
